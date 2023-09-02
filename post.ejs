@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= post.title %></title>
+</head>
+<body>
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <h2>Comments</h2>
+  <ul>
+    <% post.comments.forEach(comment => { %>
+      <li><%= comment.text %></li>
+    <% }); %>
+  </ul>
+  <form action="/post/<%= post._id %>/comment" method="post">
+    <input type="text" name="text" placeholder="Add a comment" required>
+    <button type="submit">Comment</button>
+  </form>
+</body>
+</html>
